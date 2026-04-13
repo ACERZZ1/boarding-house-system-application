@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fitsSystemWindows="true">
+
+    <!-- SCROLL CONTENT -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- STEP 1: BASIC INFO -->
+            <LinearLayout
+                android:id="@+id/step1"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Basic Information"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="6dp"
+                    app:cardBackgroundColor="@color/cardBackground">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/etPropertyTitle"
+                            android:hint="Property Title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"/>
+
+                        <Spinner
+                            android:id="@+id/spinnerPropertyType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"/>
+
+                        <EditText
+                            android:id="@+id/etMaxGuests"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Max Guests"
+                            android:inputType="number"
+                            android:layout_marginTop="10dp"/>
+
+                        <EditText
+                            android:id="@+id/etBedrooms"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Bedrooms"
+                            android:inputType="number"
+                            android:layout_marginTop="10dp"/>
+
+                        <EditText
+                            android:id="@+id/etBeds"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Beds"
+                            android:inputType="number"
+                            android:layout_marginTop="10dp"/>
+
+                        <EditText
+                            android:id="@+id/etBathrooms"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Bathrooms"
+                            android:inputType="number"
+                            android:layout_marginTop="10dp"/>
+
+                        <EditText
+                            android:id="@+id/etDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Description"
+                            android:inputType="textMultiLine"
+                            android:maxLines="5"
+                            android:minLines="3"
+                            android:layout_marginTop="10dp"/>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- STEP 2: LOCATION -->
+            <LinearLayout
+                android:id="@+id/step2"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Location"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="6dp"
+                    app:cardBackgroundColor="@color/cardBackground">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/etStreetAddress"
+                            android:hint="Street Address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPostalAddress"/>
+
+                        <EditText
+                            android:id="@+id/etCity"
+                            android:hint="City"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:layout_marginTop="10dp"/>
+
+                        <EditText
+                            android:id="@+id/etProvince"
+                            android:hint="Province"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:layout_marginTop="10dp"/>
+
+                        <EditText
+                            android:id="@+id/etZipCode"
+                            android:hint="Zip Code"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPostalAddress"
+                            android:layout_marginTop="10dp"/>
+
+                        <EditText
+                            android:id="@+id/etCountry"
+                            android:hint="Country"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:layout_marginTop="10dp"/>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- STEP 3: SERVICES -->
+            <LinearLayout
+                android:id="@+id/step3"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Services"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="6dp"
+                    app:cardBackgroundColor="@color/cardBackground">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Select available services:"
+                            android:textSize="14sp"
+                            android:layout_marginBottom="8dp"/>
+
+                        <CheckBox android:id="@+id/cbWifi"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="WiFi"/>
+                        <CheckBox android:id="@+id/cbParking"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Parking" android:layout_marginTop="8dp"/>
+                        <CheckBox android:id="@+id/cbAircon"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Air Conditioning" android:layout_marginTop="8dp"/>
+                        <CheckBox android:id="@+id/cbLaundry"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Laundry Service" android:layout_marginTop="8dp"/>
+                        <CheckBox android:id="@+id/cbCCTV"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="CCTV Security" android:layout_marginTop="8dp"/>
+                        <CheckBox android:id="@+id/cbWater"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Water Included" android:layout_marginTop="8dp"/>
+                        <CheckBox android:id="@+id/cbElectricity"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Electricity Included" android:layout_marginTop="8dp"/>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- STEP 4: PRICE & RULES -->
+            <LinearLayout
+                android:id="@+id/step4"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Price &amp; House Rules"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="6dp"
+                    app:cardBackgroundColor="@color/cardBackground">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/etPrice"
+                            android:hint="Price per month (₱)"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"/>
+
+                        <EditText
+                            android:id="@+id/etDeposit"
+                            android:hint="Security Deposit (₱)"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:layout_marginTop="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="House Rules:"
+                            android:textSize="14sp"
+                            android:layout_marginTop="16dp"/>
+
+                        <EditText
+                            android:id="@+id/etRules"
+                            android:hint="e.g., No pets, No smoking, Quiet hours after 10pm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textMultiLine"
+                            android:maxLines="4"
+                            android:minLines="2"
+                            android:layout_marginTop="8dp"/>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- STEP 5: IMAGES -->
+            <LinearLayout
+                android:id="@+id/step5"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Images"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="6dp"
+                    app:cardBackgroundColor="@color/cardBackground">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnCoverImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Upload Cover Image"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:drawableStart="@android:drawable/ic_menu_gallery"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnGalleryImages"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Upload Gallery Images"
+                            android:layout_marginTop="10dp"
+                            style="@style/Widget.Material3.Button.OutlinedButton"
+                            android:drawableStart="@android:drawable/ic_menu_gallery"/>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- STEP 6: MAP LOCATION PIN -->
+            <LinearLayout
+                android:id="@+id/step6"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pin Your Location"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tap the button to open the map and pin your boarding house location."
+                    android:textSize="13sp"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="6dp"
+                    app:cardBackgroundColor="@color/cardBackground">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🗺️"
+                            android:textSize="64sp"
+                            android:layout_marginBottom="12dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnPickLocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="📍 Open Map to Pin Location"
+                            app:cornerRadius="12dp"/>
+
+                        <TextView
+                            android:id="@+id/tvLocationStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="12sp"
+                            android:textColor="#4CAF50"
+                            android:layout_marginTop="10dp"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- STEP 7: CONTACT + ADD UNITS -->
+            <LinearLayout
+                android:id="@+id/step7"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Contact section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact Details"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="6dp"
+                    app:cardBackgroundColor="@color/cardBackground">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/etFirstName"
+                            android:hint="First Name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords|textPersonName"/>
+
+                        <EditText
+                            android:id="@+id/etLastName"
+                            android:hint="Last Name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapWords|textPersonName"
+                            android:layout_marginTop="10dp"/>
+
+                        <EditText
+                            android:id="@+id/etContactEmail"
+                            android:hint="Email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:layout_marginTop="10dp"/>
+
+                        <EditText
+                            android:id="@+id/etPhoneNumber"
+                            android:hint="Phone Number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:layout_marginTop="10dp"/>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Units section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Units / Rooms"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Optional — tap 'Add Unit' to add individual rooms or units inside this property."
+                    android:textSize="13sp"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Unit cards will be added here dynamically -->
+                <LinearLayout
+                    android:id="@+id/llUnitsContainer"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+    </ScrollView>
+
+    <!-- DEFAULT BUTTON BAR (steps 1–6) -->
+    <LinearLayout
+        android:id="@+id/defaultButtonBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBack"
+            android:text="Back"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cornerRadius="12dp"
+            style="@style/Widget.Material3.Button.OutlinedButton"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNext"
+            android:text="Next"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:cornerRadius="12dp"/>
+
+    </LinearLayout>
+
+    <!-- UNIT BUTTON BAR (step 7 only) -->
+    <LinearLayout
+        android:id="@+id/unitButtonBar"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:orientation="horizontal">
+
+        <!-- Back button on the left -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBackFromUnits"
+            android:text="Back"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cornerRadius="12dp"
+            style="@style/Widget.Material3.Button.OutlinedButton"/>
+
+        <!-- Add Unit button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddUnit"
+            android:text="+ Add Unit"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:cornerRadius="12dp"
+            style="@style/Widget.Material3.Button.OutlinedButton"/>
+
+        <!-- Post button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPost"
+            android:text="Post"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:cornerRadius="12dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #map { width: 100%; height: 100vh; }
+    #confirm-btn {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      background: #1565C0; color: white; border: none; padding: 14px 36px;
+      border-radius: 30px; font-size: 16px; font-weight: bold;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35); display: none; z-index: 999;
+      cursor: pointer; white-space: nowrap;
+    }
+    #hint {
+      position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+      background: rgba(0,0,0,0.68); color: white; padding: 10px 22px;
+      border-radius: 24px; font-size: 14px; z-index: 999; white-space: nowrap;
+    }
+    #coords {
+      position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+      background: rgba(255,255,255,0.9); color: #333; padding: 6px 16px;
+      border-radius: 16px; font-size: 12px; z-index: 999; display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="hint">📍 Tap the map to pin your boarding house location</div>
+  <div id="map"></div>
+  <div id="coords"></div>
+  <button id="confirm-btn" onclick="confirmLocation()">✅ Confirm This Location</button>
+
+  <script>
+    // Centered on Borongan City, Eastern Samar
+    var map = L.map('map').setView([11.6078, 125.4318], 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19
+    }).addTo(map);
+
+    var marker = null;
+    var lat = null, lng = null;
+
+    map.on('click', function(e) {
+      lat = e.latlng.lat.toFixed(7);
+      lng = e.latlng.lng.toFixed(7);
+
+      if (marker) {
+        marker.setLatLng(e.latlng);
+      } else {
+        marker = L.marker(e.latlng, { draggable: true }).addTo(map);
+        marker.on('dragend', function(ev) {
+          lat = ev.target.getLatLng().lat.toFixed(7);
+          lng = ev.target.getLatLng().lng.toFixed(7);
+          document.getElementById('coords').innerText = '📍 ' + lat + ', ' + lng;
+        });
+      }
+
+      document.getElementById('confirm-btn').style.display = 'block';
+      document.getElementById('hint').style.display = 'none';
+      document.getElementById('coords').style.display = 'block';
+      document.getElementById('coords').innerText = '📍 ' + lat + ', ' + lng;
+    });
+
+    function confirmLocation() {
+      if (lat && lng) {
+        Android.onLocationPicked(lat, lng);
+      }
+    }
+  </script>
+</body>
+</html>

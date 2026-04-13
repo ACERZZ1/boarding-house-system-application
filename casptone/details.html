@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Listing Details</title>
+  <link rel="stylesheet" href="details.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">airbnb</div>
+  <div class="search-bar">
+    <span>Anywhere</span>
+    <span>Any week</span>
+    <span>Add guests</span>
+    <button>🔍</button>
+  </div>
+  <div class="profile">☰ 👤</div>
+</header>
+
+<!-- TITLE -->
+<section class="title">
+  <h1 id="title">Luxury Beachfront Villa</h1>
+  <p id="location">⭐ 4.95 · Malibu, California</p>
+</section>
+
+<!-- IMAGE GRID -->
+<section class="gallery">
+  <img id="main-image" class="big" src="https://source.unsplash.com/800x600/?villa" alt="">
+  <img src="https://source.unsplash.com/400x300/?house" alt="">
+  <img src="https://source.unsplash.com/400x300/?interior" alt="">
+  <img src="https://source.unsplash.com/400x300/?livingroom" alt="">
+  <img src="https://source.unsplash.com/400x300/?pool" alt="">
+</section>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <!-- LEFT CONTENT -->
+  <div class="left">
+
+    <h2 id="host">Entire villa hosted by Sarah</h2>
+    <p id="info">8 guests · 4 bedrooms · 4 beds · 3 baths</p>
+
+    <hr>
+
+    <p id="description">
+      Experience luxury living in this stunning beachfront villa.
+      Wake up to breathtaking ocean views and enjoy modern amenities.
+    </p>
+
+    <hr>
+
+    <h3>What this place offers</h3>
+    <ul class="amenities" id="amenities">
+      <li>Ocean view</li>
+      <li>Pool</li>
+      <li>Wifi</li>
+      <li>Free parking</li>
+      <li>Kitchen</li>
+    </ul>
+
+  </div>
+
+  <!-- RIGHT BOOKING CARD -->
+  <div class="booking">
+    <h2><span id="price">$850</span> <span>night</span></h2>
+    <p id="rating">⭐ 4.95</p>
+
+    <div class="box">
+      <p>Check-in</p>
+      <p>Add date</p>
+    </div>
+
+    <div class="box">
+      <p>Guests</p>
+      <p>1</p>
+    </div>
+
+    <button class="reserve">Reserve</button>
+  </div>
+
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <h2 id="review-summary">⭐ 4.95 · 127 reviews</h2>
+
+  <div class="review-grid" id="review-container">
+
+    <!-- SAMPLE (WILL BE REPLACED BY PHP LOOP) -->
+    <div class="review">
+      <h4 class="review-name">Sarah</h4>
+      <p class="review-text">Amazing property! Would stay again.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- MAP + HOST -->
+<section class="bottom">
+  <div class="map">Map placeholder</div>
+
+  <div class="host">
+    <h3 id="host-name">Hosted by Sarah Mitchell</h3>
+    <p id="host-info">Superhost · 127 reviews</p>
+    <button>Contact Host</button>
+  </div>
+</section>
+
+</body>
+</html>

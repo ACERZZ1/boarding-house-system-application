@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Post Your Home</title>
+  <link rel="stylesheet" href="post.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">airbnb</div>
+  <div class="nav-right">
+    <a href="index.html">Back</a>
+  </div>
+</header>
+
+<!-- FORM -->
+<section class="form-container">
+
+  <h1>List your property</h1>
+
+  <form action="insert.php" method="POST">
+
+    <!-- TITLE / LOCATION -->
+    <div class="form-group">
+      <label>Title / Location</label>
+      <input type="text" name="title" required>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="form-group">
+      <label>Description</label>
+      <textarea name="description" required></textarea>
+    </div>
+
+    <!-- PROPERTY DETAILS -->
+    <div class="form-row">
+      <div>
+        <label>Guests</label>
+        <input type="number" name="guests" required>
+      </div>
+
+      <div>
+        <label>Bedrooms</label>
+        <input type="number" name="bedrooms" required>
+      </div>
+
+      <div>
+        <label>Beds</label>
+        <input type="number" name="beds" required>
+      </div>
+
+      <div>
+        <label>Bathrooms</label>
+        <input type="number" name="bathrooms" required>
+      </div>
+    </div>
+
+    <!-- PRICE -->
+    <div class="form-group">
+      <label>Price per night ($)</label>
+      <input type="number" name="price" required>
+    </div>
+
+    <!-- MAIN IMAGE -->
+    <div class="form-group">
+      <label>Main Image URL</label>
+      <input type="text" name="image" required>
+    </div>
+
+    <!-- EXTRA IMAGES -->
+    <div class="form-group">
+      <label>Gallery Images (optional)</label>
+      <input type="text" name="image2" placeholder="Image URL 2">
+      <input type="text" name="image3" placeholder="Image URL 3">
+      <input type="text" name="image4" placeholder="Image URL 4">
+      <input type="text" name="image5" placeholder="Image URL 5">
+    </div>
+
+    <!-- AMENITIES -->
+    <div class="form-group">
+      <label>Amenities</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="amenities[]" value="Wifi"> Wifi</label>
+        <label><input type="checkbox" name="amenities[]" value="Pool"> Pool</label>
+        <label><input type="checkbox" name="amenities[]" value="Parking"> Parking</label>
+        <label><input type="checkbox" name="amenities[]" value="Kitchen"> Kitchen</label>
+        <label><input type="checkbox" name="amenities[]" value="Aircon"> Air Conditioning</label>
+      </div>
+    </div>
+
+    <!-- MAP LOCATION -->
+    <div class="form-group">
+      <label>Location (Google Maps)</label>
+      <p>Click on the map to set your location</p>
+     <input type="text" name="latitude" placeholder="Latitude (optional)">
+     <input type="text" name="longitude" placeholder="Longitude (optional)">
+
+      <!-- Hidden inputs for coordinates -->
+      <input type="hidden" name="latitude" id="latitude">
+      <input type="hidden" name="longitude" id="longitude">
+    </div>
+
+    <!-- SUBMIT -->
+    <button type="submit" class="submit-btn">Publish Listing</button>
+
+  </form>
+
+</section>
+
+<!-- GOOGLE MAP SCRIPT -->
+<script>
+let map;
+let marker;
+
+function initMap() {
+  const defaultLocation = { lat: 14.5995, lng: 120.9842 }; // Philippines
+
+  map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 10,
+    center: defaultLocation,
+  });
+
+  map.addListener("click", (event) => {
+    const lat = event.latLng.lat();
+    const lng = event.latLng.lng();
+
+    document.getElementById("latitude").value = lat;
+    document.getElementById("longitude").value = lng;
+
+    if (marker) {
+      marker.setMap(null);
+    }
+
+    marker = new google.maps.Marker({
+      position: { lat, lng },
+      map: map,
+    });
+  });
+}
+</script>
+
+<!-- Google Maps API -->
+<script async
+src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Boarder name -->
+        <TextView
+            android:id="@+id/tvPendingBoarderName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="👤 Boarder Name"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:layout_marginBottom="2dp"/>
+
+        <!-- Boarder email -->
+        <TextView
+            android:id="@+id/tvPendingBoarderEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✉ email"
+            android:textSize="13sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:alpha="0.2"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Property -->
+        <TextView
+            android:id="@+id/tvPendingPropertyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🏠 Property"
+            android:textSize="14sp"
+            android:textColor="@color/textPrimary"
+            android:layout_marginBottom="2dp"/>
+
+        <!-- Unit -->
+        <TextView
+            android:id="@+id/tvPendingUnitName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Whole property"
+            android:textSize="13sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginBottom="2dp"/>
+
+        <!-- Move-in date -->
+        <TextView
+            android:id="@+id/tvPendingMoveInDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Move-in: 2025-08-01"
+            android:textSize="13sp"
+            android:textColor="@color/textPrimary"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Message -->
+        <TextView
+            android:id="@+id/tvPendingMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No message provided"
+            android:textSize="13sp"
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="italic"
+            android:layout_marginBottom="14dp"/>
+
+        <!-- Accept / Reject buttons -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnApproveReservation"
+                android:text="Accept"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#4CAF50"
+                android:textColor="@android:color/white"
+                app:cornerRadius="10dp"/>
+
+            <View
+                android:layout_width="12dp"
+                android:layout_height="1dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRejectReservation"
+                android:text="Reject"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#F44336"
+                android:textColor="@android:color/white"
+                app:cornerRadius="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
